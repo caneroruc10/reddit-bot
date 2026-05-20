@@ -51,4 +51,7 @@ async def send_posts():
             await asyncio.sleep(3)
     print("Gönderiler tamamlandı!")
 
-asyncio.run(send_posts())
+def run_bot():
+    asyncio.run(send_posts())
+
+run_bot()
