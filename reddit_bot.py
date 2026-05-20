@@ -6,7 +6,7 @@ from telegram import Bot
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
 
-SUBREDDITS = ["EngineeringPorn"]
+SUBREDDITS = ["funsized"]
 POST_LIMIT = 3
 
 bot = Bot(token=TELEGRAM_TOKEN)
