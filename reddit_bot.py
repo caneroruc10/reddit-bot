@@ -1,4 +1,4 @@
-# v6
+# v7
 import requests
 import asyncio
 import schedule
@@ -9,7 +9,7 @@ from telegram import Bot
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
 
-SUBREDDITS = ["funsized","SexyButNotPorn","happygirls","SexyChicksInPics"]
+SUBREDDITS = ["EngineeringPorn"]
 POST_LIMIT = 3
 
 bot = Bot(token=TELEGRAM_TOKEN)
