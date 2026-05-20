@@ -2,7 +2,7 @@ import requests
 import asyncio
 import os
 from telegram import Bot
-# v3
+# v4
 
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
