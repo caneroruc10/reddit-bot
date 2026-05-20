@@ -1,12 +1,15 @@
+# v3
 import requests
 import asyncio
+import schedule
+import time
 import os
 from telegram import Bot
 
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
 
-SUBREDDITS = ["funsized","B_Cups","SexyChicksInPics","SexyButNotPorn","happygirls"]
+SUBREDDITS = ["funsized","SexyButNotPorn","happygirls","SexyChicksInPics"]
 POST_LIMIT = 3
 
 bot = Bot(token=TELEGRAM_TOKEN)
@@ -19,7 +22,6 @@ def get_reddit_posts(subreddit):
         "Cookie": "over18=1"
     }
     response = requests.get(url, headers=headers)
-    print(f"Status: {response.status_code}")
     if response.status_code != 200:
         print(f"Hata: {subreddit} için {response.status_code}")
         return []
@@ -54,4 +56,19 @@ async def send_posts():
 def run_bot():
     asyncio.run(send_posts())
 
-run_bot()
+schedule.every().monday.at("08:30").do(run_bot)
+schedule.every().monday.at("17:00").do(run_bot)
+schedule.every().tuesday.at("08:30").do(run_bot)
+schedule.every().tuesday.at("17:00").do(run_bot)
+schedule.every().wednesday.at("08:30").do(run_bot)
+schedule.every().wednesday.at("17:00").do(run_bot)
+schedule.every().thursday.at("08:30").do(run_bot)
+schedule.every().thursday.at("17:00").do(run_bot)
+schedule.every().friday.at("08:30").do(run_bot)
+schedule.every().friday.at("17:00").do(run_bot)
+
+print("Bot başladı! Hafta içi 08:30 ve 17:00'da çalışacak.")
+
+while True:
+    schedule.run_pending()
+    time.sleep(60)
