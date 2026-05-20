@@ -55,7 +55,7 @@ async def send_posts():
 
 def run_bot():
     asyncio.run(send_posts())
-run_bot()
+
 schedule.every().monday.at("08:30").do(run_bot)
 schedule.every().monday.at("17:00").do(run_bot)
 schedule.every().tuesday.at("08:30").do(run_bot)
